@@ -38,6 +38,8 @@ func init() {
 
 		// When registering new auth, ALWAYS make sure to append at the end.
 		consts.AuthRegistry.Register(&auth.ED25519{}, auth.UnmarshalED25519, false),
+		consts.ActionRegistry.Register(&actions.CreateAsset{}, actions.UnmarshalCreateAsset, false),
+		consts.ActionRegistry.Register(&actions.MintAsset{}, actions.UnmarshalMintAsset, false),
 	)
 	if errs.Errored() {
 		panic(errs.Err)
